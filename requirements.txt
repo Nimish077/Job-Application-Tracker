@@ -1,0 +1,15 @@
+fastapi>=0.110.0
+uvicorn[standard]>=0.27.0
+sqlalchemy>=2.0.25
+psycopg2-binary>=2.9.9
+alembic>=1.13.1
+pydantic>=2.6.0
+pydantic-settings>=2.1.0
+email-validator>=2.1.0
+passlib[bcrypt]>=1.7.4
+# passlib 1.7.4 reads bcrypt.__about__, which bcrypt removed in 4.1.
+# Without this upper bound, bcrypt 5.x is installed and CryptContext init raises
+# "password cannot be longer than 72 bytes" at import time.
+bcrypt>=4.0.1,<4.1
+python-jose[cryptography]>=3.3.0
+python-multipart>=0.0.6
